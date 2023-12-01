@@ -26,7 +26,7 @@ pub fn run() -> Result<String, RunError> {
         total_value += calibration_value;
     }
 
-    Ok(format!("{}", total_value))
+    Ok(total_value.to_string())
 }
 
 fn extract_calibration_value(string: &str) -> Result<u32, RunError> {
