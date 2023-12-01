@@ -1,3 +1,6 @@
 pub fn main() {
-    day_1a::run();
+    match day_1a::run() {
+        Ok(result) => println!("Result: {}", result),
+        Err(error) => println!("Error: {}", error.message),
+    }
 }
