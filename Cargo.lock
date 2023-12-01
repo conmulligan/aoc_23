@@ -6,14 +6,25 @@ version = 3
 name = "aoc_23"
 version = "0.1.0"
 dependencies = [
+ "core",
  "day_1a",
  "day_1b",
 ]
 
 [[package]]
+name = "core"
+version = "0.1.0"
+
+[[package]]
 name = "day_1a"
 version = "0.1.0"
+dependencies = [
+ "core",
+]
 
 [[package]]
 name = "day_1b"
 version = "0.1.0"
+dependencies = [
+ "core",
+]

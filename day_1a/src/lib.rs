@@ -1,31 +1,39 @@
-pub fn run() {
-    let content = include_str!("../input.txt");
+use core::RunError;
 
-    let lines = content
+static INPUT: &str = include_str!("../input.txt");
+
+pub fn run() -> Result<String, RunError> {
+    let lines = INPUT
         .split('\n')
         .filter(|l| !l.is_empty())
         .collect::<Vec<_>>();
 
-    let mut total_value: i32 = 0;
+    let mut total_value: u32 = 0;
     for line in lines {
-        let calibration_value = extract_calibration_value(line);
-        total_value += i32::from(calibration_value);
+        let calibration_value = extract_calibration_value(line)?;
+        total_value += calibration_value;
     }
 
-    println!("Result: {}", total_value);
+    Ok(total_value.to_string())
 }
 
-fn extract_calibration_value(string: &str) -> i8 {
-    let digits: Vec<char> = string.chars().filter(|c| c.is_ascii_digit()).collect();
+fn extract_calibration_value(string: &str) -> Result<u32, RunError> {
+    let digits: Vec<u32> = string
+        .chars()
+        .filter(|c| c.is_ascii_digit())
+        .map(|c| c.to_digit(10).unwrap())
+        .collect();
 
-    let joined: String;
     if digits.len() == 1 {
-        joined = String::from_iter([digits.first().unwrap(), digits.first().unwrap()]);
+        let first = digits.first().unwrap();
+        Ok((first * 10) + first)
     } else if digits.len() > 1 {
-        joined = String::from_iter([digits.first().unwrap(), digits.last().unwrap()])
+        let first = digits.first().unwrap();
+        let last = digits.last().unwrap();
+        Ok((first * 10) + last)
     } else {
-        panic!("Failed to parse any digits!");
+        Err(RunError {
+            message: String::from("Failed to parse any digits!"),
+        })
     }
-
-    joined.parse().unwrap()
 }

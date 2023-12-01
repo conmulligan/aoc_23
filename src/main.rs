@@ -1,4 +1,5 @@
 use aoc_23::TASKS;
+use core::RunError;
 use std::io;
 
 fn main() {
@@ -23,7 +24,10 @@ fn main() {
     }
 }
 
-fn run(name: &str, task: fn()) {
+fn run(name: &str, task: fn() -> Result<String, RunError>) {
     println!("Task: {}", name);
-    task();
+    match task() {
+        Ok(result) => println!("Result: {}", result),
+        Err(error) => println!("Error: {}", error.message),
+    }
 }
