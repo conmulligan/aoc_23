@@ -24,7 +24,7 @@ pub fn run() {
     let mut total_value: i32 = 0;
     for line in lines {
         let calibration_value = extract_calibration_value(line);
-        total_value = total_value + i32::from(calibration_value);
+        total_value += i32::from(calibration_value);
     }
 
     println!("Result: {}", total_value);
