@@ -11,9 +11,6 @@ static NUMBERS: &[(&str, i8)] = &[
 ];
 
 pub fn run() {
-    println!("Day 1b");
-    println!("======");
-
     let content = include_str!("../input.txt");
 
     let lines = content

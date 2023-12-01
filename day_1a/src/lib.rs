@@ -1,7 +1,4 @@
 pub fn run() {
-    println!("Day 1a");
-    println!("======");
-
     let content = include_str!("../input.txt");
 
     let lines = content
