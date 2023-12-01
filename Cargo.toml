@@ -6,8 +6,8 @@ edition = "2021"
 [workspace]
 members = [
     ".",
-    "day_1",
+    "day_1a",
 ]
 
 [dependencies]
-day_1 = { path = "day_1" }
+day_1a = { path = "day_1a" }

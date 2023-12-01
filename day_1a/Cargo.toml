@@ -1,7 +1,4 @@
 [package]
-name = "day_1"
+name = "day_1a"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-path = "src/main.rs"

@@ -1,3 +1,3 @@
 pub fn days() -> &'static [(fn(), &'static str)] {
-    &[(day_1::main, "day_1")]
+    &[(day_1a::run, "day_1a")]
 }

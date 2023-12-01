@@ -6,9 +6,9 @@ version = 3
 name = "aoc_23"
 version = "0.1.0"
 dependencies = [
- "day_1",
+ "day_1a",
 ]
 
 [[package]]
-name = "day_1"
+name = "day_1a"
 version = "0.1.0"
