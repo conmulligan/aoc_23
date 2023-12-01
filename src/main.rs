@@ -2,7 +2,7 @@ use aoc_23::TASKS;
 use std::io;
 
 fn main() {
-    println!("Enter the task to run (e.g. day_1a) or \"all\":");
+    println!("Enter the task to run (e.g. 'day_1a') or 'all':");
 
     let mut input = String::new();
 
@@ -11,7 +11,6 @@ fn main() {
         .expect("Failed to read input!");
 
     let trimmed = input.trim();
-    println!("You entered: {}", trimmed);
 
     if trimmed == "all" {
         TASKS.iter().for_each(|t| run(t.0, t.1));
