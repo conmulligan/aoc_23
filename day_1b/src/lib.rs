@@ -34,7 +34,7 @@ fn extract_calibration_value(string: &str) -> Result<u32, RunError> {
 
     for (i, char) in string.chars().enumerate() {
         if char.is_ascii_digit() {
-            let digit = u32::try_from(char.to_digit(10).unwrap()).unwrap();
+            let digit = char.to_digit(10).unwrap();
             digits.push(digit);
         } else {
             let substring = &string[i..];
