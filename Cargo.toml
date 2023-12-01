@@ -7,7 +7,9 @@ edition = "2021"
 members = [
     ".",
     "day_1a",
+    "day_1b",
 ]
 
 [dependencies]
 day_1a = { path = "day_1a" }
+day_1b = { path = "day_1b" }

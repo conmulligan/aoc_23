@@ -2,8 +2,7 @@ pub fn run() {
     println!("Day 1a");
     println!("======");
 
-    let bytes = include_bytes!("../input.txt");
-    let content = String::from_utf8_lossy(bytes);
+    let content = include_str!("../input.txt");
 
     let lines = content
         .split('\n')

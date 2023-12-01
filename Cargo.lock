@@ -7,8 +7,13 @@ name = "aoc_23"
 version = "0.1.0"
 dependencies = [
  "day_1a",
+ "day_1b",
 ]
 
 [[package]]
 name = "day_1a"
+version = "0.1.0"
+
+[[package]]
+name = "day_1b"
 version = "0.1.0"
