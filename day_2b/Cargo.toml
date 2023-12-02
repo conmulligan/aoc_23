@@ -1,0 +1,8 @@
+[package]
+name = "day_2b"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+core = { path = "../core" }
+day_2a = { path = "../day_2a" }
