@@ -15,10 +15,7 @@ static NUMBERS: &[(&str, u8)] = &[
 ];
 
 pub fn run() -> Result<String, RunError> {
-    let lines = INPUT
-        .split('\n')
-        .filter(|l| !l.is_empty())
-        .collect::<Vec<_>>();
+    let lines = core::parse_lines(INPUT);
 
     let mut total_value: u32 = 0;
     for line in lines {

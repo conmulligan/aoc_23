@@ -10,10 +10,7 @@ static MAX_GREEN: u32 = 13;
 static MAX_BLUE: u32 = 14;
 
 pub fn run() -> Result<String, RunError> {
-    let lines = INPUT
-        .split('\n')
-        .filter(|l| !l.is_empty())
-        .collect::<Vec<_>>();
+    let lines = core::parse_lines(INPUT);
 
     let mut sum_ids: u32 = 0;
 

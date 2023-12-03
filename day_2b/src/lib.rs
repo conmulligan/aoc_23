@@ -3,10 +3,7 @@ use day_2a::model::GameRound;
 use day_2a::parsing::parse_game;
 
 pub fn run() -> Result<String, RunError> {
-    let lines = day_2a::INPUT
-        .split('\n')
-        .filter(|l| !l.is_empty())
-        .collect::<Vec<_>>();
+    let lines = core::parse_lines(day_2a::INPUT);
 
     let mut sum_power: u32 = 0;
 
