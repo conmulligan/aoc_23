@@ -6,7 +6,7 @@ pub fn parse_game(string: &str) -> Result<Game, RunError> {
     let components: Vec<&str> = string.split(":").collect();
     if components.len() != 2 {
         return Err(RunError {
-            message: String::from("Invalid game string format."),
+            message: "Invalid game string format.".to_string(),
         });
     }
 
@@ -56,7 +56,7 @@ fn parse_round(string: &str) -> Result<GameRound, RunError> {
             "blue" => blue_count = count,
             _ => {
                 return Err(RunError {
-                    message: String::from("Failed to parse the game round."),
+                    message: "Failed to parse the game round.".to_string(),
                 })
             }
         }

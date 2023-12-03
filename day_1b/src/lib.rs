@@ -55,7 +55,7 @@ fn extract_calibration_value(string: &str) -> Result<u32, RunError> {
         Ok((first * 10) + last)
     } else {
         Err(RunError {
-            message: String::from("Failed to parse any digits!"),
+            message: "Failed to parse any digits!".to_string(),
         })
     }
 }
