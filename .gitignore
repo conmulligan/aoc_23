@@ -1,1 +1,4 @@
 /target
+
+# Ignore input.
+**/input.txt
