@@ -1,4 +1,5 @@
 use core::RunError;
+use std::collections::HashSet;
 
 use crate::model::ScratchCard;
 
@@ -21,8 +22,6 @@ pub fn parse_scratchcard(string: &str) -> Result<ScratchCard, RunError> {
         });
     }
 
-    let card_number = components.first().unwrap().trim().to_string();
-
     let num_components: Vec<&str> = components.last().unwrap().split('|').collect();
     if num_components.len() != 2 {
         return Err(RunError {
@@ -32,11 +31,16 @@ pub fn parse_scratchcard(string: &str) -> Result<ScratchCard, RunError> {
 
     let winning_numbers = parse_numbers(num_components.first().unwrap().trim());
     let numbers = parse_numbers(num_components.last().unwrap().trim());
+    let matches = winning_numbers
+        .iter()
+        .collect::<HashSet<_>>()
+        .intersection(&numbers.iter().collect::<HashSet<_>>())
+        .count();
 
     Ok(ScratchCard {
-        card_number,
         winning_numbers,
         numbers,
+        matches,
     })
 }
 

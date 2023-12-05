@@ -16,23 +16,9 @@ pub fn run() -> Result<String, RunError> {
 }
 
 fn calculate_score(scratchcards: &Vec<ScratchCard>) -> u32 {
-    let mut total_score: u32 = 0;
-
-    for scratchcard in scratchcards {
-        let mut multiplier = 0;
-
-        for number in &scratchcard.numbers {
-            if scratchcard.winning_numbers.contains(number) {
-                if multiplier == 0 {
-                    multiplier = 1;
-                } else {
-                    multiplier = multiplier * 2;
-                }
-            }
-        }
-
-        total_score += multiplier;
-    }
-
-    total_score
+    scratchcards
+        .iter()
+        .filter(|c| c.matches > 0)
+        .map(|c| 2_u32.pow(c.matches as u32 - 1))
+        .sum()
 }
