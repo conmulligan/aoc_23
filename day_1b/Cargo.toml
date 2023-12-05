@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 core = { path = "../core" }
+day_1a = { path = "../day_1a" }

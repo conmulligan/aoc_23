@@ -33,6 +33,7 @@ name = "day_1b"
 version = "0.1.0"
 dependencies = [
  "core",
+ "day_1a",
 ]
 
 [[package]]

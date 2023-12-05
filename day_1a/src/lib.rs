@@ -1,6 +1,6 @@
 use core::RunError;
 
-static INPUT: &str = include_str!("../input.txt");
+pub static INPUT: &str = include_str!("../input.txt");
 
 pub fn run() -> Result<String, RunError> {
     let lines = core::parse_lines(INPUT);

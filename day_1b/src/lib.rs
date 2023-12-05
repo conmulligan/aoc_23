@@ -1,7 +1,5 @@
 use core::RunError;
 
-static INPUT: &str = include_str!("../input.txt");
-
 static NUMBERS: &[(&str, u8)] = &[
     ("one", 1),
     ("two", 2),
@@ -15,7 +13,7 @@ static NUMBERS: &[(&str, u8)] = &[
 ];
 
 pub fn run() -> Result<String, RunError> {
-    let lines = core::parse_lines(INPUT);
+    let lines = core::parse_lines(day_1a::INPUT);
 
     let mut total_value: u32 = 0;
     for line in lines {
