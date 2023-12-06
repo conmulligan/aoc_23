@@ -18,14 +18,14 @@ pub fn parse_races(lines: Vec<&str>) -> Result<Vec<Race>, RunError> {
     Ok(races)
 }
 
-fn parse_numbers(line: &str) -> Vec<u32> {
+fn parse_numbers(line: &str) -> Vec<u64> {
     let (numbers, _): (Vec<_>, Vec<_>) = line
         .split(':')
         .last()
         .unwrap()
         .trim()
         .split(' ')
-        .map(|s| s.trim().parse::<u32>())
+        .map(|s| s.trim().parse::<u64>())
         .partition(Result::is_ok);
 
     numbers.iter().map(|n| n.clone().unwrap()).collect()

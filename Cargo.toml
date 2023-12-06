@@ -15,7 +15,8 @@ members = [
     "day_3b",
     "day_4a",
     "day_4b",
-    "day_6a"
+    "day_6a",
+    "day_6b"
 ]
 
 [dependencies]
@@ -29,3 +30,4 @@ day_3b = { path = "day_3b" }
 day_4a = { path = "day_4a" }
 day_4b = { path = "day_4b" }
 day_6a = { path = "day_6a" }
+day_6b = { path = "day_6b" }

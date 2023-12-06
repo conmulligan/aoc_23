@@ -1,5 +1,5 @@
 #[derive(Debug)]
 pub struct Race {
-    pub time: u32,
-    pub distance: u32,
+    pub time: u64,
+    pub distance: u64,
 }
