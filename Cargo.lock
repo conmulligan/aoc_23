@@ -17,6 +17,7 @@ dependencies = [
  "day_4b",
  "day_6a",
  "day_6b",
+ "day_7a",
 ]
 
 [[package]]
@@ -96,4 +97,11 @@ version = "0.1.0"
 dependencies = [
  "core",
  "day_6a",
+]
+
+[[package]]
+name = "day_7a"
+version = "0.1.0"
+dependencies = [
+ "core",
 ]
