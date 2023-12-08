@@ -1,15 +1,12 @@
 use core::RunError;
 use std::collections::HashMap;
 
-use model::Hand;
+mod parsing;
 
-pub mod model;
-pub mod parsing;
-
-pub static INPUT: &str = include_str!("../input.txt");
+use day_7a::model::Hand;
 
 pub fn run() -> Result<String, RunError> {
-    let lines = core::parse_lines(INPUT);
+    let lines = core::parse_lines(day_7a::INPUT);
     let hands = parsing::parse_hands(lines)?;
 
     let mut weighted_hands: Vec<_> = hands
@@ -29,12 +26,23 @@ pub fn run() -> Result<String, RunError> {
 
 fn hand_weight(hand: &Hand) -> Vec<u32> {
     let mut map = HashMap::new();
+    let mut joker_count: u32 = 0;
 
     for card in &hand.cards {
-        *map.entry(card).or_insert(0) += 1;
+        if card != &1 {
+            *map.entry(card).or_insert(0) += 1;
+        } else {
+            joker_count += 1;
+        }
     }
 
     let mut counts: Vec<_> = map.into_values().collect();
     counts.sort_by(|a, b| b.cmp(a));
+
+    match counts.get_mut(0) {
+        Some(head) => *head += joker_count,
+        None => counts.push(5),
+    }
+
     counts
 }
