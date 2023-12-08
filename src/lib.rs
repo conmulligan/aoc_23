@@ -14,4 +14,5 @@ pub static TASKS: &[(&'static str, fn() -> Result<String, RunError>)] = &[
     ("day_7a", day_7a::run),
     ("day_7b", day_7b::run),
     ("day_8a", day_8a::run),
+    ("day_8b", day_8b::run),
 ];
