@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use model::Hand;
 
 pub mod model;
-pub mod parsing;
+mod parsing;
 
 pub static INPUT: &str = include_str!("../input.txt");
 

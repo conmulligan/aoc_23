@@ -41,7 +41,7 @@ fn hand_weight(hand: &Hand) -> Vec<u32> {
 
     match counts.get_mut(0) {
         Some(head) => *head += joker_count,
-        None => counts.push(5),
+        None => counts.push(joker_count),
     }
 
     counts
