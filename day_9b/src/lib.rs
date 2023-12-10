@@ -1,12 +1,9 @@
 use core::{parse_lines, RunError};
 
-pub mod model;
-pub mod parsing;
-
-pub static INPUT: &str = include_str!("../input.txt");
+use day_9a::{differences_for_sequence, parsing};
 
 pub fn run() -> Result<String, RunError> {
-    let lines = parse_lines(INPUT);
+    let lines = parse_lines(day_9a::INPUT);
     let values: Vec<_> = lines.iter().map(|v| parsing::parse_values(v)).collect();
     let total: i32 = values.iter().map(|v| enumerate_differences(&v)).sum();
 
@@ -33,23 +30,9 @@ fn enumerate_differences(sequence: &Vec<i32>) -> i32 {
             break;
         }
         let mut next = differences[index + 1].clone();
-        next.push(next.last().unwrap() + amended[index].last().unwrap());
+        next.insert(0, next.first().unwrap() - amended[index].first().unwrap());
         amended[index + 1] = next;
     }
 
-    *amended.last().unwrap().last().unwrap()
-}
-
-pub fn differences_for_sequence(sequence: &Vec<i32>) -> Vec<i32> {
-    let mut differences: Vec<i32> = Vec::new();
-
-    for (index, value) in sequence.iter().enumerate() {
-        if index == sequence.len() - 1 {
-            break;
-        }
-        let next = sequence[index + 1];
-        differences.push(next - value);
-    }
-
-    differences
+    *amended.last().unwrap().first().unwrap()
 }
