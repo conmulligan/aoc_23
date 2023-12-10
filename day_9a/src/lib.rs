@@ -26,18 +26,18 @@ fn enumerate_differences(sequence: &Vec<i32>) -> i32 {
 
     differences.reverse();
 
-    let mut ammended = differences.clone();
+    let mut amended = differences.clone();
 
     for (index, _) in differences.iter().enumerate() {
         if index == differences.len() - 1 {
             break;
         }
         let mut next = differences[index + 1].clone();
-        next.push(next.last().unwrap() + ammended[index].last().unwrap());
-        ammended[index + 1] = next;
+        next.push(next.last().unwrap() + amended[index].last().unwrap());
+        amended[index + 1] = next;
     }
 
-    *ammended.last().unwrap().last().unwrap()
+    *amended.last().unwrap().last().unwrap()
 }
 
 fn differences_for_sequence(sequence: &Vec<i32>) -> Vec<i32> {
